@@ -5,6 +5,7 @@ from __future__ import print_function
 import numpy as np
 import cv2
 from .ddd_utils import compute_box_3d, project_to_image, draw_box_3d
+import os
 
 class Debugger(object):
   def __init__(self, ipynb=False, theme='black', 
@@ -233,8 +234,8 @@ class Debugger(object):
           self.plt.imshow(v)
       self.plt.show()
 
-  def save_img(self, imgId='default', path='./cache/debug/'):
-    cv2.imwrite(path + '{}.png'.format(imgId), self.imgs[imgId])
+  def save_img(self, imgId='default', path='./cache/debug/', saved_name=''):
+    cv2.imwrite(os.path.join(path, '{}.png'.format(saved_name)), self.imgs[imgId])
     
   def save_all_imgs(self, path='./cache/debug/', prefix='', genID=False):
     if genID:

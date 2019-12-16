@@ -13,7 +13,7 @@ class opts(object):
     self.parser.add_argument('task', default='ctdet',
                              help='ctdet | ddd | multi_pose | exdet')
     self.parser.add_argument('--dataset', default='coco',
-                             help='coco | kitti | coco_hp | pascal')
+                             help='coco | kitti | coco_hp | pascal | barcode')
     self.parser.add_argument('--exp_id', default='default')
     self.parser.add_argument('--test', action='store_true')
     self.parser.add_argument('--debug', type=int, default=0,
@@ -357,6 +357,6 @@ class opts(object):
           self.__setattr__(k, v)
     opt = self.parse(args)
     dataset = Struct(default_dataset_info[opt.task])
-    opt.dataset = dataset.dataset
+    # opt.dataset = dataset.dataset
     opt = self.update_dataset_info_and_set_heads(opt, dataset)
     return opt

@@ -87,10 +87,11 @@ class CtdetDetector(BaseDetector):
                                  detection[i, k, 4], 
                                  img_id='out_pred_{:.1f}'.format(scale))
 
-  def show_results(self, debugger, image, results):
+  def show_results(self, debugger, image, results, saved_name):
     debugger.add_img(image, img_id='ctdet')
     for j in range(1, self.num_classes + 1):
       for bbox in results[j]:
         if bbox[4] > self.opt.vis_thresh:
           debugger.add_coco_bbox(bbox[:4], j - 1, bbox[4], img_id='ctdet')
-    debugger.show_all_imgs(pause=self.pause)
+    # debugger.show_all_imgs(pause=self.pause)
+    debugger.save_img(imgId='ctdet', path=self.opt.debug_dir, saved_name=saved_name)
