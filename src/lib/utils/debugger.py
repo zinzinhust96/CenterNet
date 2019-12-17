@@ -46,6 +46,8 @@ class Debugger(object):
       self.names = coco_class_name
     elif num_classes == 20 or dataset == 'pascal':
       self.names = pascal_class_name
+    elif dataset == 'barcode':
+      self.names = barcode_class_name
     elif dataset == 'gta':
       self.names = gta_class_name
       self.focal_length = 935.3074360871937
@@ -428,6 +430,9 @@ class Debugger(object):
                       lineType=cv2.LINE_AA)
     self.imgs[img_id] = bird_view
 
+barcode_class_name = [
+  'barcode'
+]
 
 kitti_class_name = [
   'p', 'v', 'b'
