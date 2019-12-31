@@ -48,6 +48,8 @@ class Debugger(object):
       self.names = pascal_class_name
     elif dataset == 'barcode':
       self.names = barcode_class_name
+    elif dataset == 'i2s':
+      self.names = i2s_class_name
     elif dataset == 'gta':
       self.names = gta_class_name
       self.focal_length = 935.3074360871937
@@ -432,6 +434,10 @@ class Debugger(object):
 
 barcode_class_name = [
   'barcode'
+]
+
+i2s_class_name = [
+  'triangle', 'smile', 'up_arrow', 'right_arrow', 'computer', 'wifi', 'down_arrow', 'line_arrow', 'circle', 'rectangle', 'human', 'cloud', 'cylinder', 'left_arrow', 'star'
 ]
 
 kitti_class_name = [

@@ -14,6 +14,9 @@ image_ext = ['jpg', 'jpeg', 'png', 'webp']
 video_ext = ['mp4', 'mov', 'avi', 'mkv']
 time_stats = ['tot', 'load', 'pre', 'net', 'dec', 'post', 'merge']
 
+# wisenet camera
+WISENET_CAM_URL = 'rtsp://admin:Ars@2468@192.168.0.182:554/profile2/media.smp'
+
 def demo(opt):
   os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpus_str
   opt.debug = max(opt.debug, 1)
@@ -22,7 +25,7 @@ def demo(opt):
 
   if opt.demo == 'webcam' or \
     opt.demo[opt.demo.rfind('.') + 1:].lower() in video_ext:
-    cam = cv2.VideoCapture(0 if opt.demo == 'webcam' else opt.demo)
+    cam = cv2.VideoCapture(WISENET_CAM_URL if opt.demo == 'webcam' else opt.demo)
     detector.pause = False
     while True:
         _, img = cam.read()

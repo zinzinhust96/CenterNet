@@ -12,6 +12,7 @@ from .dataset.pascal import PascalVOC
 from .dataset.kitti import KITTI
 from .dataset.coco_hp import COCOHP
 from .dataset.barcode import BARCODE
+from .dataset.i2s import IMAGE2SLIDE
 
 
 dataset_factory = {
@@ -19,7 +20,8 @@ dataset_factory = {
   'pascal': PascalVOC,
   'kitti': KITTI,
   'coco_hp': COCOHP,
-  'barcode': BARCODE
+  'barcode': BARCODE,
+  'i2s': IMAGE2SLIDE
 }
 
 _sample_factory = {
